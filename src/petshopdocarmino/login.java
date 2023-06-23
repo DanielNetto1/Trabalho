@@ -4,6 +4,12 @@
  */
 package petshopdocarmino;
 
+import Controller.LoginDAO;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+import modelos.LoginModel;
+
+
 /**
  *
  * @author conta
@@ -33,8 +39,8 @@ public class login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         entrar = new javax.swing.JButton();
-        usuario = new javax.swing.JTextField();
-        senha = new javax.swing.JPasswordField();
+        UserName = new javax.swing.JTextField();
+        PassWord = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,14 +83,14 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        usuario.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        UserName.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        UserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                UserNameActionPerformed(evt);
             }
         });
 
-        senha.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        PassWord.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -98,8 +104,8 @@ public class login extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(senha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                        .addComponent(usuario, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(PassWord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                        .addComponent(UserName, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -110,11 +116,11 @@ public class login extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(8, 8, 8)
-                .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(entrar)
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -133,7 +139,7 @@ public class login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 997, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -172,22 +178,48 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_entrarActionPerformed
 
     private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
+
+        LoginDAO testeLogin = new LoginDAO();
+        LoginModel login = new LoginModel();        
+        
+        login.setUsername(UserName.getText());
+        login.setSenha(PassWord.getText());
+        
+        try{
+            if ( testeLogin.Logar(login)){
+                //System.out.println("Dados Corretos");
+                tela1 NovaJanela = new tela1();
+                NovaJanela.setVisible(true);
+            }else{
+                System.out.println("Dados Incorretos");
+            }
+        }catch (Exception ex){
+            //Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+
+
+
+
+
         // TODO add your handling code here:
-        String teste = usuario.getText();
+        /*String teste = usuario.getText();
         String minhasenha = senha.getText();
         if (teste.equals("daniel") 
             && minhasenha.equals("123456")){
             tela1 novajanela = new tela1();
             novajanela.setVisible(true);
-        }        
+        }  */      
         
         
     }//GEN-LAST:event_entrarMouseClicked
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+    private void UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_usuarioActionPerformed
+    }//GEN-LAST:event_UserNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,6 +257,8 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField PassWord;
+    private javax.swing.JTextField UserName;
     private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -233,7 +267,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private java.awt.Panel panel1;
-    private javax.swing.JPasswordField senha;
-    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
