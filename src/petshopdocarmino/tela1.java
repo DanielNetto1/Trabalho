@@ -4,6 +4,8 @@
  */
 package petshopdocarmino;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author conta
@@ -36,6 +38,9 @@ public class tela1 extends javax.swing.JFrame {
         BotaoBanho1 = new javax.swing.JButton();
         BotaoBanho2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        AdServ = new javax.swing.JButton();
+        AdClientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1540, 800));
@@ -51,10 +56,16 @@ public class tela1 extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Veterinária");
 
-        BotaoVet.setText("Próximos");
+        BotaoVet.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
+        BotaoVet.setText("PRÓXIMOS");
         BotaoVet.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotaoVetMouseClicked(evt);
+            }
+        });
+        BotaoVet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoVetActionPerformed(evt);
             }
         });
 
@@ -96,14 +107,16 @@ public class tela1 extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Banho & Tosa");
 
-        BotaoBanho1.setText("Finalizados");
+        BotaoBanho1.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
+        BotaoBanho1.setText("FINALIZADOS");
         BotaoBanho1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotaoBanho1MouseClicked(evt);
             }
         });
 
-        BotaoBanho2.setText("Fila de Espera");
+        BotaoBanho2.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
+        BotaoBanho2.setText("FILA DE ESPERA");
         BotaoBanho2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotaoBanho2MouseClicked(evt);
@@ -144,6 +157,35 @@ public class tela1 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel6.setFont(new java.awt.Font("Roboto Light", 2, 18)); // NOI18N
+        jLabel6.setText("Admnistrativo");
+
+        AdServ.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        AdServ.setText("SERVIÇOS");
+        AdServ.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdServMouseClicked(evt);
+            }
+        });
+        AdServ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdServActionPerformed(evt);
+            }
+        });
+
+        AdClientes.setFont(new java.awt.Font("Roboto Light", 0, 11)); // NOI18N
+        AdClientes.setText("CLIENTES");
+        AdClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AdClientesMouseClicked(evt);
+            }
+        });
+        AdClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdClientesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,7 +197,12 @@ public class tela1 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(AdServ)
+                        .addGap(38, 38, 38)
+                        .addComponent(AdClientes)))
                 .addContainerGap(227, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -167,7 +214,13 @@ public class tela1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel6)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdServ)
+                    .addComponent(AdClientes))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,6 +243,35 @@ public class tela1 extends javax.swing.JFrame {
             ProxBanhoPendente janela4 = new ProxBanhoPendente();
             janela4.setVisible(true);
     }//GEN-LAST:event_BotaoBanho2MouseClicked
+
+    private void AdServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdServActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdServActionPerformed
+
+    private void BotaoVetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoVetActionPerformed
+
+    private void AdServMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdServMouseClicked
+            
+        try{
+            TelaSeevicos janela8 = new TelaSeevicos();
+            janela8.setVisible(true);
+        }catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao ler tabela: " + ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdServMouseClicked
+
+    private void AdClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdClientesActionPerformed
+
+    private void AdClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdClientesMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_AdClientesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -227,6 +309,8 @@ public class tela1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdClientes;
+    private javax.swing.JButton AdServ;
     private javax.swing.JButton BotaoBanho1;
     private javax.swing.JButton BotaoBanho2;
     private javax.swing.JButton BotaoVet;
@@ -235,6 +319,7 @@ public class tela1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

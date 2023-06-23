@@ -11,6 +11,7 @@ package modelos;
 public class Servicos {
     private int idServico;
     private String nomeServico;
+    private int quantidadeServico;
     private double precoServico;
 
     public int getIdServico() {
@@ -35,6 +36,34 @@ public class Servicos {
 
     public void setPrecoServico(double precoServico) {
         this.precoServico = precoServico;
+    }
+
+    public int getQuantidadeServico() {
+        return quantidadeServico;
+    }
+
+    public void setQuantidadeServico(int quantidadeServico) {
+        this.quantidadeServico = quantidadeServico;
+    }
+    /*
+    public int quantidadeServico() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setnomeServico(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setquantidadeServico(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setprecoServico(double parseDouble) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }*/
+
+    public void setidServico(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     
